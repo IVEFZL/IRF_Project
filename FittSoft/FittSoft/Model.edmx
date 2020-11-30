@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="D_GYAKORLAT">
+          <Key>
+            <PropertyRef Name="GYAKORLAT_SK" />
+          </Key>
+          <Property Name="GYAKORLAT_SK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORIA_ID" Type="int" Nullable="false" />
+          <Property Name="MEGNEVEZES" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LEIRAS" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="D_KATEGORIA">
+          <Key>
+            <PropertyRef Name="KATEGORIA_SK" />
+          </Key>
+          <Property Name="KATEGORIA_SK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEGNEVEZES" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="F_EDZES">
+          <Key>
+            <PropertyRef Name="EDZES_SK" />
+          </Key>
+          <Property Name="EDZES_SK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDOTARTAM" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="KEZD_IDOPONT" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="BEF_IDOPONT" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="F_EDZES_GYAKORLAT">
+          <Key>
+            <PropertyRef Name="EDZES_GYAKORLAT_SK" />
+          </Key>
+          <Property Name="EDZES_GYAKORLAT_SK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EDZES_ID" Type="int" Nullable="false" />
+          <Property Name="GYAKORLAT_ID" Type="int" Nullable="false" />
+          <Property Name="ISMETLES" Type="int" />
+          <Property Name="IDOTARTAM" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="SULY" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="F_MERES">
+          <Key>
+            <PropertyRef Name="MERES_SK" />
+          </Key>
+          <Property Name="MERES_SK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TOMEG" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="TESTZSIR" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="DATUM" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_D_GYAKORLAT_D_KATEGORIA">
+          <End Role="D_KATEGORIA" Type="Self.D_KATEGORIA" Multiplicity="1" />
+          <End Role="D_GYAKORLAT" Type="Self.D_GYAKORLAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="D_KATEGORIA">
+              <PropertyRef Name="KATEGORIA_SK" />
+            </Principal>
+            <Dependent Role="D_GYAKORLAT">
+              <PropertyRef Name="KATEGORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_F_EDZES_GYAKORLAT_D_GYAKORLAT">
+          <End Role="D_GYAKORLAT" Type="Self.D_GYAKORLAT" Multiplicity="1" />
+          <End Role="F_EDZES_GYAKORLAT" Type="Self.F_EDZES_GYAKORLAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="D_GYAKORLAT">
+              <PropertyRef Name="GYAKORLAT_SK" />
+            </Principal>
+            <Dependent Role="F_EDZES_GYAKORLAT">
+              <PropertyRef Name="GYAKORLAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_F_EDZES_GYAKORLAT_F_EDZES">
+          <End Role="F_EDZES" Type="Self.F_EDZES" Multiplicity="1" />
+          <End Role="F_EDZES_GYAKORLAT" Type="Self.F_EDZES_GYAKORLAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="F_EDZES">
+              <PropertyRef Name="EDZES_SK" />
+            </Principal>
+            <Dependent Role="F_EDZES_GYAKORLAT">
+              <PropertyRef Name="EDZES_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DWModelStoreContainer">
+          <EntitySet Name="D_GYAKORLAT" EntityType="Self.D_GYAKORLAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_KATEGORIA" EntityType="Self.D_KATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_EDZES" EntityType="Self.F_EDZES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_EDZES_GYAKORLAT" EntityType="Self.F_EDZES_GYAKORLAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="F_MERES" EntityType="Self.F_MERES" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_D_GYAKORLAT_D_KATEGORIA" Association="Self.FK_D_GYAKORLAT_D_KATEGORIA">
+            <End Role="D_KATEGORIA" EntitySet="D_KATEGORIA" />
+            <End Role="D_GYAKORLAT" EntitySet="D_GYAKORLAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_F_EDZES_GYAKORLAT_D_GYAKORLAT" Association="Self.FK_F_EDZES_GYAKORLAT_D_GYAKORLAT">
+            <End Role="D_GYAKORLAT" EntitySet="D_GYAKORLAT" />
+            <End Role="F_EDZES_GYAKORLAT" EntitySet="F_EDZES_GYAKORLAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_F_EDZES_GYAKORLAT_F_EDZES" Association="Self.FK_F_EDZES_GYAKORLAT_F_EDZES">
+            <End Role="F_EDZES" EntitySet="F_EDZES" />
+            <End Role="F_EDZES_GYAKORLAT" EntitySet="F_EDZES_GYAKORLAT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="D_GYAKORLAT">
+          <Key>
+            <PropertyRef Name="GYAKORLAT_SK" />
+          </Key>
+          <Property Name="GYAKORLAT_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORIA_ID" Type="Int32" Nullable="false" />
+          <Property Name="MEGNEVEZES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LEIRAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="D_KATEGORIA" Relationship="Self.FK_D_GYAKORLAT_D_KATEGORIA" FromRole="D_GYAKORLAT" ToRole="D_KATEGORIA" />
+          <NavigationProperty Name="F_EDZES_GYAKORLAT" Relationship="Self.FK_F_EDZES_GYAKORLAT_D_GYAKORLAT" FromRole="D_GYAKORLAT" ToRole="F_EDZES_GYAKORLAT" />
+        </EntityType>
+        <EntityType Name="D_KATEGORIA">
+          <Key>
+            <PropertyRef Name="KATEGORIA_SK" />
+          </Key>
+          <Property Name="KATEGORIA_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEGNEVEZES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="D_GYAKORLAT" Relationship="Self.FK_D_GYAKORLAT_D_KATEGORIA" FromRole="D_KATEGORIA" ToRole="D_GYAKORLAT" />
+        </EntityType>
+        <EntityType Name="F_EDZES">
+          <Key>
+            <PropertyRef Name="EDZES_SK" />
+          </Key>
+          <Property Name="EDZES_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDOTARTAM" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="KEZD_IDOPONT" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="BEF_IDOPONT" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="F_EDZES_GYAKORLAT" Relationship="Self.FK_F_EDZES_GYAKORLAT_F_EDZES" FromRole="F_EDZES" ToRole="F_EDZES_GYAKORLAT" />
+        </EntityType>
+        <EntityType Name="F_EDZES_GYAKORLAT">
+          <Key>
+            <PropertyRef Name="EDZES_GYAKORLAT_SK" />
+          </Key>
+          <Property Name="EDZES_GYAKORLAT_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EDZES_ID" Type="Int32" Nullable="false" />
+          <Property Name="GYAKORLAT_ID" Type="Int32" Nullable="false" />
+          <Property Name="ISMETLES" Type="Int32" />
+          <Property Name="IDOTARTAM" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="SULY" Type="Decimal" Precision="6" Scale="2" />
+          <NavigationProperty Name="D_GYAKORLAT" Relationship="Self.FK_F_EDZES_GYAKORLAT_D_GYAKORLAT" FromRole="F_EDZES_GYAKORLAT" ToRole="D_GYAKORLAT" />
+          <NavigationProperty Name="F_EDZES" Relationship="Self.FK_F_EDZES_GYAKORLAT_F_EDZES" FromRole="F_EDZES_GYAKORLAT" ToRole="F_EDZES" />
+        </EntityType>
+        <EntityType Name="F_MERES">
+          <Key>
+            <PropertyRef Name="MERES_SK" />
+          </Key>
+          <Property Name="MERES_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TOMEG" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="TESTZSIR" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="DATUM" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <Association Name="FK_D_GYAKORLAT_D_KATEGORIA">
+          <End Role="D_KATEGORIA" Type="Self.D_KATEGORIA" Multiplicity="1" />
+          <End Role="D_GYAKORLAT" Type="Self.D_GYAKORLAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="D_KATEGORIA">
+              <PropertyRef Name="KATEGORIA_SK" />
+            </Principal>
+            <Dependent Role="D_GYAKORLAT">
+              <PropertyRef Name="KATEGORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_F_EDZES_GYAKORLAT_D_GYAKORLAT">
+          <End Role="D_GYAKORLAT" Type="Self.D_GYAKORLAT" Multiplicity="1" />
+          <End Role="F_EDZES_GYAKORLAT" Type="Self.F_EDZES_GYAKORLAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="D_GYAKORLAT">
+              <PropertyRef Name="GYAKORLAT_SK" />
+            </Principal>
+            <Dependent Role="F_EDZES_GYAKORLAT">
+              <PropertyRef Name="GYAKORLAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_F_EDZES_GYAKORLAT_F_EDZES">
+          <End Role="F_EDZES" Type="Self.F_EDZES" Multiplicity="1" />
+          <End Role="F_EDZES_GYAKORLAT" Type="Self.F_EDZES_GYAKORLAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="F_EDZES">
+              <PropertyRef Name="EDZES_SK" />
+            </Principal>
+            <Dependent Role="F_EDZES_GYAKORLAT">
+              <PropertyRef Name="EDZES_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="D_GYAKORLAT" EntityType="Self.D_GYAKORLAT" />
+          <EntitySet Name="D_KATEGORIA" EntityType="Self.D_KATEGORIA" />
+          <EntitySet Name="F_EDZES" EntityType="Self.F_EDZES" />
+          <EntitySet Name="F_EDZES_GYAKORLAT" EntityType="Self.F_EDZES_GYAKORLAT" />
+          <EntitySet Name="F_MERES" EntityType="Self.F_MERES" />
+          <AssociationSet Name="FK_D_GYAKORLAT_D_KATEGORIA" Association="Self.FK_D_GYAKORLAT_D_KATEGORIA">
+            <End Role="D_KATEGORIA" EntitySet="D_KATEGORIA" />
+            <End Role="D_GYAKORLAT" EntitySet="D_GYAKORLAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_F_EDZES_GYAKORLAT_D_GYAKORLAT" Association="Self.FK_F_EDZES_GYAKORLAT_D_GYAKORLAT">
+            <End Role="D_GYAKORLAT" EntitySet="D_GYAKORLAT" />
+            <End Role="F_EDZES_GYAKORLAT" EntitySet="F_EDZES_GYAKORLAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_F_EDZES_GYAKORLAT_F_EDZES" Association="Self.FK_F_EDZES_GYAKORLAT_F_EDZES">
+            <End Role="F_EDZES" EntitySet="F_EDZES" />
+            <End Role="F_EDZES_GYAKORLAT" EntitySet="F_EDZES_GYAKORLAT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DWModelStoreContainer" CdmEntityContainer="DWEntities">
+          <EntitySetMapping Name="D_GYAKORLAT">
+            <EntityTypeMapping TypeName="DWModel.D_GYAKORLAT">
+              <MappingFragment StoreEntitySet="D_GYAKORLAT">
+                <ScalarProperty Name="GYAKORLAT_SK" ColumnName="GYAKORLAT_SK" />
+                <ScalarProperty Name="KATEGORIA_ID" ColumnName="KATEGORIA_ID" />
+                <ScalarProperty Name="MEGNEVEZES" ColumnName="MEGNEVEZES" />
+                <ScalarProperty Name="LEIRAS" ColumnName="LEIRAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="D_KATEGORIA">
+            <EntityTypeMapping TypeName="DWModel.D_KATEGORIA">
+              <MappingFragment StoreEntitySet="D_KATEGORIA">
+                <ScalarProperty Name="KATEGORIA_SK" ColumnName="KATEGORIA_SK" />
+                <ScalarProperty Name="MEGNEVEZES" ColumnName="MEGNEVEZES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_EDZES">
+            <EntityTypeMapping TypeName="DWModel.F_EDZES">
+              <MappingFragment StoreEntitySet="F_EDZES">
+                <ScalarProperty Name="EDZES_SK" ColumnName="EDZES_SK" />
+                <ScalarProperty Name="IDOTARTAM" ColumnName="IDOTARTAM" />
+                <ScalarProperty Name="KEZD_IDOPONT" ColumnName="KEZD_IDOPONT" />
+                <ScalarProperty Name="BEF_IDOPONT" ColumnName="BEF_IDOPONT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_EDZES_GYAKORLAT">
+            <EntityTypeMapping TypeName="DWModel.F_EDZES_GYAKORLAT">
+              <MappingFragment StoreEntitySet="F_EDZES_GYAKORLAT">
+                <ScalarProperty Name="EDZES_GYAKORLAT_SK" ColumnName="EDZES_GYAKORLAT_SK" />
+                <ScalarProperty Name="EDZES_ID" ColumnName="EDZES_ID" />
+                <ScalarProperty Name="GYAKORLAT_ID" ColumnName="GYAKORLAT_ID" />
+                <ScalarProperty Name="ISMETLES" ColumnName="ISMETLES" />
+                <ScalarProperty Name="IDOTARTAM" ColumnName="IDOTARTAM" />
+                <ScalarProperty Name="SULY" ColumnName="SULY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="F_MERES">
+            <EntityTypeMapping TypeName="DWModel.F_MERES">
+              <MappingFragment StoreEntitySet="F_MERES">
+                <ScalarProperty Name="MERES_SK" ColumnName="MERES_SK" />
+                <ScalarProperty Name="TOMEG" ColumnName="TOMEG" />
+                <ScalarProperty Name="TESTZSIR" ColumnName="TESTZSIR" />
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
