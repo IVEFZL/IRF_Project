@@ -82,6 +82,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDoneWorkouts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoneWorkouts.Designer.cs">
+      <DependentUpon>FormDoneWorkouts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExercises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExercises.Designer.cs">
+      <DependentUpon>FormExercises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMeasures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMeasures.Designer.cs">
+      <DependentUpon>FormMeasures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWorkoutSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWorkoutSession.Designer.cs">
+      <DependentUpon>FormWorkoutSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_EDZES.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -108,6 +132,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
