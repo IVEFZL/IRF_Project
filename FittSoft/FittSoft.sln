@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FittSoft", "FittSoft\FittSoft.csproj", "{2D33FA5C-3EC3-4925-9B93-142F3AE0D2F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FittSoft_Test", "FittSoft_Test\FittSoft_Test.csproj", "{CBFB15F7-639E-40B4-8B13-CAE7C94415F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2D33FA5C-3EC3-4925-9B93-142F3AE0D2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D33FA5C-3EC3-4925-9B93-142F3AE0D2F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D33FA5C-3EC3-4925-9B93-142F3AE0D2F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFB15F7-639E-40B4-8B13-CAE7C94415F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFB15F7-639E-40B4-8B13-CAE7C94415F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFB15F7-639E-40B4-8B13-CAE7C94415F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFB15F7-639E-40B4-8B13-CAE7C94415F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

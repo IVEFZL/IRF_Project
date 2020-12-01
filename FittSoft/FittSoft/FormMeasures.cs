@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace FittSoft
 
         private void refreshMeasures()
         {
+            context.F_MERES.Load();
+            fMERESBindingSource.DataSource = context.F_MERES.Local;
+            /*
             var measures = from x in context.F_MERES
                            select new
                            {
@@ -31,12 +35,28 @@ namespace FittSoft
                            };
 
             dgw_Measures.DataSource = measures.ToList();
+            */
         }
 
         private void btn_toFormNewMeasure_Click(object sender, EventArgs e)
         {
             FormNewMeasure form = new FormNewMeasure();
-            form.ShowDialog();
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                // Új rekord létrehozása
+                F_MERES ujmeres = new F_MERES();
+
+                // Adatok feltöltése
+                ujmeres.DATUM = DateTime.Parse(form.textBox_date.Text);
+                ujmeres.TOMEG = decimal.Parse(form.textBox_weight.Text);
+                ujmeres.TESTZSIR = decimal.Parse(form.textBox_bodyfat.Text);
+                
+
+                // Rekord hozzáadása az adatforráshoz
+                fMERESBindingSource.Add(ujmeres);
+                context.SaveChanges();
+            }
         }
     }
 }

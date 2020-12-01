@@ -67,15 +67,18 @@
             // 
             // btn_ok
             // 
+            this.btn_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_ok.Location = new System.Drawing.Point(259, 282);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 23);
             this.btn_ok.TabIndex = 3;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_cancel.Location = new System.Drawing.Point(453, 282);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
@@ -131,8 +134,8 @@
         private System.Windows.Forms.Label label_bodyfat;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.TextBox textBox_date;
-        private System.Windows.Forms.TextBox textBox_weight;
-        private System.Windows.Forms.TextBox textBox_bodyfat;
+        public System.Windows.Forms.TextBox textBox_date;
+        public System.Windows.Forms.TextBox textBox_weight;
+        public System.Windows.Forms.TextBox textBox_bodyfat;
     }
 }
