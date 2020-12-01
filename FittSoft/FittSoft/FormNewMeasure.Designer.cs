@@ -68,6 +68,7 @@
             // btn_ok
             // 
             this.btn_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_ok.Enabled = false;
             this.btn_ok.Location = new System.Drawing.Point(259, 282);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 23);
@@ -92,6 +93,7 @@
             this.textBox_date.Name = "textBox_date";
             this.textBox_date.Size = new System.Drawing.Size(100, 20);
             this.textBox_date.TabIndex = 5;
+            this.textBox_date.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBox_weight
             // 
@@ -99,6 +101,7 @@
             this.textBox_weight.Name = "textBox_weight";
             this.textBox_weight.Size = new System.Drawing.Size(100, 20);
             this.textBox_weight.TabIndex = 6;
+            this.textBox_weight.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // textBox_bodyfat
             // 
@@ -106,6 +109,7 @@
             this.textBox_bodyfat.Name = "textBox_bodyfat";
             this.textBox_bodyfat.Size = new System.Drawing.Size(100, 20);
             this.textBox_bodyfat.TabIndex = 7;
+            this.textBox_bodyfat.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // FormNewMeasure
             // 

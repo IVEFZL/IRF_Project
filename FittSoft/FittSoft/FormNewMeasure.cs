@@ -14,7 +14,7 @@ namespace FittSoft
 {
     public partial class FormNewMeasure : Form
     {
-        DWEntities context = new DWEntities();
+
         public FormNewMeasure()
         {
             InitializeComponent();
@@ -24,18 +24,15 @@ namespace FittSoft
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if(
-               ValidateDate(textBox_date.Text) &&
-               ValidateWeight(textBox_weight.Text) &&
-               ValidateBodyfat(textBox_bodyfat.Text)
-               )
-            {
-                
-            }
-            else
-            {
+            
+        }
 
-            }
+        private void ValidateOkButton()
+        {
+            if (ValidateDate(textBox_date.Text) &&
+               ValidateWeight(textBox_weight.Text) &&
+               ValidateBodyfat(textBox_bodyfat.Text)) btn_ok.Enabled = true;
+            else btn_ok.Enabled = false;
         }
 
         public bool CheckDate(String date)
@@ -88,6 +85,11 @@ namespace FittSoft
 
             if ((isDecimal && lessThan100) || isEmpty) return true;
             else return false;
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateOkButton();
         }
     }
 }

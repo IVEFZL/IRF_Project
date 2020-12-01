@@ -25,17 +25,6 @@ namespace FittSoft
         {
             context.F_MERES.Load();
             fMERESBindingSource.DataSource = context.F_MERES.Local;
-            /*
-            var measures = from x in context.F_MERES
-                           select new
-                           {
-                               Dátum = x.DATUM,
-                               Tömeg = x.TOMEG,
-                               Testzsír = x.TESTZSIR
-                           };
-
-            dgw_Measures.DataSource = measures.ToList();
-            */
         }
 
         private void btn_toFormNewMeasure_Click(object sender, EventArgs e)
@@ -50,7 +39,8 @@ namespace FittSoft
                 // Adatok feltöltése
                 ujmeres.DATUM = DateTime.Parse(form.textBox_date.Text);
                 ujmeres.TOMEG = decimal.Parse(form.textBox_weight.Text);
-                ujmeres.TESTZSIR = decimal.Parse(form.textBox_bodyfat.Text);
+                if (!String.IsNullOrEmpty(form.textBox_bodyfat.Text)) { ujmeres.TESTZSIR = decimal.Parse(form.textBox_bodyfat.Text); }
+                
                 
 
                 // Rekord hozzáadása az adatforráshoz
