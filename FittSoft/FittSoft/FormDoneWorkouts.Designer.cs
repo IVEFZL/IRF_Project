@@ -119,6 +119,7 @@
             this.btn_export.TabIndex = 8;
             this.btn_export.Text = "Exportálás";
             this.btn_export.UseVisualStyleBackColor = true;
+            this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
             // 
             // FormDoneWorkouts
             // 
