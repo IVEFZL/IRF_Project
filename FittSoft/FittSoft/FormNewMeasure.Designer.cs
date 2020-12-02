@@ -41,55 +41,72 @@
             // label_date
             // 
             this.label_date.AutoSize = true;
-            this.label_date.Location = new System.Drawing.Point(220, 63);
+            this.label_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(26)))));
+            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_date.ForeColor = System.Drawing.Color.White;
+            this.label_date.Location = new System.Drawing.Point(159, 54);
             this.label_date.Name = "label_date";
-            this.label_date.Size = new System.Drawing.Size(41, 13);
+            this.label_date.Size = new System.Drawing.Size(56, 18);
             this.label_date.TabIndex = 0;
             this.label_date.Text = "Dátum:";
             // 
             // label_weight
             // 
             this.label_weight.AutoSize = true;
-            this.label_weight.Location = new System.Drawing.Point(220, 101);
+            this.label_weight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(26)))));
+            this.label_weight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_weight.ForeColor = System.Drawing.Color.White;
+            this.label_weight.Location = new System.Drawing.Point(159, 94);
             this.label_weight.Name = "label_weight";
-            this.label_weight.Size = new System.Drawing.Size(43, 13);
+            this.label_weight.Size = new System.Drawing.Size(59, 18);
             this.label_weight.TabIndex = 1;
             this.label_weight.Text = "Tömeg:";
             // 
             // label_bodyfat
             // 
             this.label_bodyfat.AutoSize = true;
-            this.label_bodyfat.Location = new System.Drawing.Point(209, 141);
+            this.label_bodyfat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(26)))));
+            this.label_bodyfat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_bodyfat.ForeColor = System.Drawing.Color.White;
+            this.label_bodyfat.Location = new System.Drawing.Point(159, 134);
             this.label_bodyfat.Name = "label_bodyfat";
-            this.label_bodyfat.Size = new System.Drawing.Size(92, 13);
+            this.label_bodyfat.Size = new System.Drawing.Size(128, 18);
             this.label_bodyfat.TabIndex = 2;
             this.label_bodyfat.Text = "Testzsír százalék:";
             // 
             // btn_ok
             // 
+            this.btn_ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(26)))));
+            this.btn_ok.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_ok.Enabled = false;
-            this.btn_ok.Location = new System.Drawing.Point(259, 282);
+            this.btn_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_ok.ForeColor = System.Drawing.Color.White;
+            this.btn_ok.Location = new System.Drawing.Point(84, 221);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_ok.Size = new System.Drawing.Size(150, 50);
             this.btn_ok.TabIndex = 3;
             this.btn_ok.Text = "OK";
-            this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.UseVisualStyleBackColor = false;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(26)))));
+            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.Location = new System.Drawing.Point(453, 282);
+            this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_cancel.Location = new System.Drawing.Point(357, 221);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.Size = new System.Drawing.Size(150, 50);
             this.btn_cancel.TabIndex = 4;
             this.btn_cancel.Text = "Mégse";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.UseVisualStyleBackColor = false;
             // 
             // textBox_date
             // 
-            this.textBox_date.Location = new System.Drawing.Point(336, 56);
+            this.textBox_date.Location = new System.Drawing.Point(324, 55);
             this.textBox_date.Name = "textBox_date";
             this.textBox_date.Size = new System.Drawing.Size(100, 20);
             this.textBox_date.TabIndex = 5;
@@ -97,7 +114,7 @@
             // 
             // textBox_weight
             // 
-            this.textBox_weight.Location = new System.Drawing.Point(336, 94);
+            this.textBox_weight.Location = new System.Drawing.Point(324, 95);
             this.textBox_weight.Name = "textBox_weight";
             this.textBox_weight.Size = new System.Drawing.Size(100, 20);
             this.textBox_weight.TabIndex = 6;
@@ -105,7 +122,7 @@
             // 
             // textBox_bodyfat
             // 
-            this.textBox_bodyfat.Location = new System.Drawing.Point(336, 134);
+            this.textBox_bodyfat.Location = new System.Drawing.Point(324, 135);
             this.textBox_bodyfat.Name = "textBox_bodyfat";
             this.textBox_bodyfat.Size = new System.Drawing.Size(100, 20);
             this.textBox_bodyfat.TabIndex = 7;
@@ -115,7 +132,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.ClientSize = new System.Drawing.Size(552, 311);
             this.Controls.Add(this.textBox_bodyfat);
             this.Controls.Add(this.textBox_weight);
             this.Controls.Add(this.textBox_date);
