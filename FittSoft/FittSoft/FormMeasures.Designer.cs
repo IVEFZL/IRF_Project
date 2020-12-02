@@ -32,11 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgw_Measures = new System.Windows.Forms.DataGridView();
             this.btn_toFormNewMeasure = new System.Windows.Forms.Button();
+            this.fMERESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dATUMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tOMEGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tESTZSIRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mERESSKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fMERESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Measures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fMERESBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,10 @@
             this.btn_toFormNewMeasure.UseVisualStyleBackColor = false;
             this.btn_toFormNewMeasure.Click += new System.EventHandler(this.btn_toFormNewMeasure_Click);
             // 
+            // fMERESBindingSource
+            // 
+            this.fMERESBindingSource.DataSource = typeof(FittSoft.F_MERES);
+            // 
             // dATUMDataGridViewTextBoxColumn
             // 
             this.dATUMDataGridViewTextBoxColumn.DataPropertyName = "DATUM";
@@ -115,10 +119,6 @@
             this.mERESSKDataGridViewTextBoxColumn.Name = "mERESSKDataGridViewTextBoxColumn";
             this.mERESSKDataGridViewTextBoxColumn.ReadOnly = true;
             this.mERESSKDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fMERESBindingSource
-            // 
-            this.fMERESBindingSource.DataSource = typeof(FittSoft.F_MERES);
             // 
             // FormMeasures
             // 

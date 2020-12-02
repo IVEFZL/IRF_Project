@@ -150,8 +150,8 @@
     <Compile Include="UserControlPreWorkout.Designer.cs">
       <DependentUpon>UserControlPreWorkout.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkoutPlanItem.cs" />
-    <Compile Include="WorkoutSession.cs" />
+    <Compile Include="Classes\WorkoutPlanItem.cs" />
+    <Compile Include="Classes\WorkoutSession.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

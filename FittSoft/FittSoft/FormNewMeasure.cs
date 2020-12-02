@@ -20,15 +20,9 @@ namespace FittSoft
             InitializeComponent();
         }
 
-
-
-        private void btn_ok_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void ValidateOkButton()
         {
+            // Csak akkor kattintható az OK gomb, ha minden megfelelően ki lett töltve
             if (ValidateDate(textBox_date.Text) &&
                ValidateWeight(textBox_weight.Text) &&
                ValidateBodyfat(textBox_bodyfat.Text)) btn_ok.Enabled = true;
@@ -37,6 +31,7 @@ namespace FittSoft
 
         public bool CheckDate(String date)
         {
+            // Parse ellenőrzés
             try
             {
                 DateTime dt = DateTime.Parse(date);
@@ -50,6 +45,7 @@ namespace FittSoft
 
         public bool CheckDecimal(String dec)
         {
+            // Parse ellenőrzés
             decimal value;
             if (Decimal.TryParse(dec, out value)) return true;
             else return false;
@@ -68,7 +64,7 @@ namespace FittSoft
         public bool ValidateBodyfat(string bodyfat)
         {
 
-            //Testzsír százalék szám legyen, és 100-nál kisebb
+            //Testzsír százalék szám legyen, és 100-nál kisebb, vagy üres
             bool isDecimal = false;
             bool lessThan100 = false;
             bool isEmpty = String.IsNullOrEmpty(bodyfat);

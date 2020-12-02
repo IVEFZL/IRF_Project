@@ -24,6 +24,7 @@ namespace FittSoft
         public FormWorkoutSession()
         {
             InitializeComponent();
+
             // Edzés tervezési nézet megjelenítése
             ucPreWorkout = new UserControlPreWorkout();
             panel_main.Controls.Clear();
@@ -72,13 +73,17 @@ namespace FittSoft
 
             if(!isCompleted)
             {
+                // Aktuális gyakorlat adatainak tárolása
                 string name = currentPlanList[curExNumber].Megnevezés;
                 string desc = currentPlanList[curExNumber].Leírás;
                 int reps = currentPlanList[curExNumber].Ismétlés;
                 decimal duration = currentPlanList[curExNumber].Időtartam;
                 decimal weight = currentPlanList[curExNumber].Súly;
 
+                // UI frissítés
                 RefreshExercisePanel(name, desc, reps, duration, weight);
+
+                // Következő gyakorlat
                 curExNumber++;
             }
             else
@@ -96,6 +101,7 @@ namespace FittSoft
                 btn_delete.Visible = true;
                 btn_next.Visible = false;
 
+                // Osztály hiányzó tulajdonságainak beállítása
                 currentSession.endTime = DateTime.Now;
                 currentSession.duration = Decimal.Parse((currentSession.endTime - currentSession.startTime).TotalMinutes.ToString());
             }

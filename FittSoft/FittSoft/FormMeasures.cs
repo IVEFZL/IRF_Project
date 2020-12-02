@@ -23,6 +23,7 @@ namespace FittSoft
 
         private void refreshMeasures()
         {
+            // Kezdeti tábla beolvasás
             context.F_MERES.Load();
             fMERESBindingSource.DataSource = context.F_MERES.Local;
         }
@@ -31,6 +32,8 @@ namespace FittSoft
         {
             FormNewMeasure form = new FormNewMeasure();
             DialogResult result = form.ShowDialog();
+
+            // Csak akkor hozunk létre rekordot, ha minden megfelelően ki lett töltve
             if (result == DialogResult.OK)
             {
                 // Új rekord létrehozása
@@ -41,8 +44,6 @@ namespace FittSoft
                 ujmeres.TOMEG = decimal.Parse(form.textBox_weight.Text);
                 if (!String.IsNullOrEmpty(form.textBox_bodyfat.Text)) { ujmeres.TESTZSIR = decimal.Parse(form.textBox_bodyfat.Text); }
                 
-                
-
                 // Rekord hozzáadása az adatforráshoz
                 fMERESBindingSource.Add(ujmeres);
                 context.SaveChanges();

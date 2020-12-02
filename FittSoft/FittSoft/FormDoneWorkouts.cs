@@ -29,6 +29,11 @@ namespace FittSoft
             listBox_dates.DataSource = dates;
         }
 
+        private void listBox_dates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDetails();
+        }
+
         private void RefreshDetails()
         {
 
@@ -62,10 +67,7 @@ namespace FittSoft
             dgw_exercises.DataSource = exercises.ToList();
         }
 
-        private void listBox_dates_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RefreshDetails();
-        }
+        
 
         private void btn_export_Click(object sender, EventArgs e)
         {

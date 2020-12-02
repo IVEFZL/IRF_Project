@@ -109,16 +109,16 @@
             this.label_weight.ForeColor = System.Drawing.Color.White;
             this.label_weight.Location = new System.Drawing.Point(84, 326);
             this.label_weight.Name = "label_weight";
-            this.label_weight.Size = new System.Drawing.Size(39, 17);
+            this.label_weight.Size = new System.Drawing.Size(68, 17);
             this.label_weight.TabIndex = 5;
-            this.label_weight.Text = "Súly:";
+            this.label_weight.Text = "Súly (kg):";
             // 
             // btn_addToPlan
             // 
             this.btn_addToPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(26)))));
             this.btn_addToPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_addToPlan.ForeColor = System.Drawing.Color.White;
-            this.btn_addToPlan.Location = new System.Drawing.Point(379, 261);
+            this.btn_addToPlan.Location = new System.Drawing.Point(420, 261);
             this.btn_addToPlan.Name = "btn_addToPlan";
             this.btn_addToPlan.Size = new System.Drawing.Size(123, 56);
             this.btn_addToPlan.TabIndex = 6;
@@ -130,21 +130,21 @@
             // 
             this.textBox_reps.Location = new System.Drawing.Point(215, 269);
             this.textBox_reps.Name = "textBox_reps";
-            this.textBox_reps.Size = new System.Drawing.Size(100, 20);
+            this.textBox_reps.Size = new System.Drawing.Size(191, 20);
             this.textBox_reps.TabIndex = 8;
             // 
             // textBox_duration
             // 
             this.textBox_duration.Location = new System.Drawing.Point(215, 297);
             this.textBox_duration.Name = "textBox_duration";
-            this.textBox_duration.Size = new System.Drawing.Size(100, 20);
+            this.textBox_duration.Size = new System.Drawing.Size(191, 20);
             this.textBox_duration.TabIndex = 9;
             // 
             // textBox_weight
             // 
             this.textBox_weight.Location = new System.Drawing.Point(215, 323);
             this.textBox_weight.Name = "textBox_weight";
-            this.textBox_weight.Size = new System.Drawing.Size(100, 20);
+            this.textBox_weight.Size = new System.Drawing.Size(191, 20);
             this.textBox_weight.TabIndex = 10;
             // 
             // comboBox_name
@@ -152,7 +152,7 @@
             this.comboBox_name.FormattingEnabled = true;
             this.comboBox_name.Location = new System.Drawing.Point(215, 237);
             this.comboBox_name.Name = "comboBox_name";
-            this.comboBox_name.Size = new System.Drawing.Size(100, 21);
+            this.comboBox_name.Size = new System.Drawing.Size(191, 21);
             this.comboBox_name.TabIndex = 11;
             // 
             // UserControlPreWorkout
