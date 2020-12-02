@@ -56,6 +56,11 @@ namespace FittSoft
             dgw_workoutPlan.DataSource = new List<WorkoutPlanItem>();
             dgw_workoutPlan.DataSource = workoutPlanList;
             dgw_workoutPlan.Refresh();
+
+            // Textboxok ürítése
+            textBox_duration.Text = "";
+            textBox_reps.Text = "";
+            textBox_weight.Text = "";
         }
     }
 }

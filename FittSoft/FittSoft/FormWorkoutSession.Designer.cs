@@ -28,15 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel_main = new System.Windows.Forms.Panel();
             this.btn_startWorkout = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
+            this.fEDZESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fEDZES_GYAKORLATBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.fEDZESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fEDZES_GYAKORLATBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_main
             // 
+            this.panel_main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_main.Location = new System.Drawing.Point(53, 12);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(739, 390);
@@ -44,6 +51,7 @@
             // 
             // btn_startWorkout
             // 
+            this.btn_startWorkout.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_startWorkout.Location = new System.Drawing.Point(155, 415);
             this.btn_startWorkout.Name = "btn_startWorkout";
             this.btn_startWorkout.Size = new System.Drawing.Size(198, 23);
@@ -54,6 +62,7 @@
             // 
             // btn_next
             // 
+            this.btn_next.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_next.Location = new System.Drawing.Point(504, 415);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(171, 23);
@@ -64,6 +73,7 @@
             // 
             // btn_save
             // 
+            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_save.Location = new System.Drawing.Point(196, 453);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(198, 23);
@@ -74,6 +84,7 @@
             // 
             // btn_delete
             // 
+            this.btn_delete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_delete.Location = new System.Drawing.Point(429, 453);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(198, 23);
@@ -81,6 +92,14 @@
             this.btn_delete.Text = "Edzés törlése";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // fEDZESBindingSource
+            // 
+            this.fEDZESBindingSource.DataSource = typeof(FittSoft.F_EDZES);
+            // 
+            // fEDZES_GYAKORLATBindingSource
+            // 
+            this.fEDZES_GYAKORLATBindingSource.DataSource = typeof(FittSoft.F_EDZES_GYAKORLAT);
             // 
             // FormWorkoutSession
             // 
@@ -94,6 +113,8 @@
             this.Controls.Add(this.panel_main);
             this.Name = "FormWorkoutSession";
             this.Text = "FormWorkoutSession";
+            ((System.ComponentModel.ISupportInitialize)(this.fEDZESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fEDZES_GYAKORLATBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,5 +126,7 @@
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.BindingSource fEDZESBindingSource;
+        private System.Windows.Forms.BindingSource fEDZES_GYAKORLATBindingSource;
     }
 }

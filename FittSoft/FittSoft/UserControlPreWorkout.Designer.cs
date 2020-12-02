@@ -44,9 +44,11 @@
             // 
             // dgw_workoutPlan
             // 
+            this.dgw_workoutPlan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgw_workoutPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_workoutPlan.Enabled = false;
-            this.dgw_workoutPlan.Location = new System.Drawing.Point(192, 3);
+            this.dgw_workoutPlan.Location = new System.Drawing.Point(14, 3);
             this.dgw_workoutPlan.Name = "dgw_workoutPlan";
             this.dgw_workoutPlan.Size = new System.Drawing.Size(500, 184);
             this.dgw_workoutPlan.TabIndex = 0;
@@ -54,7 +56,7 @@
             // label_addNew
             // 
             this.label_addNew.AutoSize = true;
-            this.label_addNew.Location = new System.Drawing.Point(303, 218);
+            this.label_addNew.Location = new System.Drawing.Point(125, 218);
             this.label_addNew.Name = "label_addNew";
             this.label_addNew.Size = new System.Drawing.Size(173, 13);
             this.label_addNew.TabIndex = 1;
@@ -63,7 +65,7 @@
             // label_name
             // 
             this.label_name.AutoSize = true;
-            this.label_name.Location = new System.Drawing.Point(303, 244);
+            this.label_name.Location = new System.Drawing.Point(125, 244);
             this.label_name.Name = "label_name";
             this.label_name.Size = new System.Drawing.Size(71, 13);
             this.label_name.TabIndex = 2;
@@ -72,7 +74,7 @@
             // label_reps
             // 
             this.label_reps.AutoSize = true;
-            this.label_reps.Location = new System.Drawing.Point(303, 271);
+            this.label_reps.Location = new System.Drawing.Point(125, 271);
             this.label_reps.Name = "label_reps";
             this.label_reps.Size = new System.Drawing.Size(72, 13);
             this.label_reps.TabIndex = 3;
@@ -81,16 +83,16 @@
             // label_duration
             // 
             this.label_duration.AutoSize = true;
-            this.label_duration.Location = new System.Drawing.Point(303, 297);
+            this.label_duration.Location = new System.Drawing.Point(125, 297);
             this.label_duration.Name = "label_duration";
-            this.label_duration.Size = new System.Drawing.Size(54, 13);
+            this.label_duration.Size = new System.Drawing.Size(84, 13);
             this.label_duration.TabIndex = 4;
-            this.label_duration.Text = "Időtartam:";
+            this.label_duration.Text = "Időtartam (perc):";
             // 
             // label_weight
             // 
             this.label_weight.AutoSize = true;
-            this.label_weight.Location = new System.Drawing.Point(303, 323);
+            this.label_weight.Location = new System.Drawing.Point(125, 323);
             this.label_weight.Name = "label_weight";
             this.label_weight.Size = new System.Drawing.Size(30, 13);
             this.label_weight.TabIndex = 5;
@@ -98,7 +100,7 @@
             // 
             // btn_addToPlan
             // 
-            this.btn_addToPlan.Location = new System.Drawing.Point(572, 271);
+            this.btn_addToPlan.Location = new System.Drawing.Point(394, 271);
             this.btn_addToPlan.Name = "btn_addToPlan";
             this.btn_addToPlan.Size = new System.Drawing.Size(75, 23);
             this.btn_addToPlan.TabIndex = 6;
@@ -108,21 +110,21 @@
             // 
             // textBox_reps
             // 
-            this.textBox_reps.Location = new System.Drawing.Point(393, 269);
+            this.textBox_reps.Location = new System.Drawing.Point(215, 269);
             this.textBox_reps.Name = "textBox_reps";
             this.textBox_reps.Size = new System.Drawing.Size(100, 20);
             this.textBox_reps.TabIndex = 8;
             // 
             // textBox_duration
             // 
-            this.textBox_duration.Location = new System.Drawing.Point(393, 297);
+            this.textBox_duration.Location = new System.Drawing.Point(215, 297);
             this.textBox_duration.Name = "textBox_duration";
             this.textBox_duration.Size = new System.Drawing.Size(100, 20);
             this.textBox_duration.TabIndex = 9;
             // 
             // textBox_weight
             // 
-            this.textBox_weight.Location = new System.Drawing.Point(393, 323);
+            this.textBox_weight.Location = new System.Drawing.Point(215, 323);
             this.textBox_weight.Name = "textBox_weight";
             this.textBox_weight.Size = new System.Drawing.Size(100, 20);
             this.textBox_weight.TabIndex = 10;
@@ -130,7 +132,7 @@
             // comboBox_name
             // 
             this.comboBox_name.FormattingEnabled = true;
-            this.comboBox_name.Location = new System.Drawing.Point(393, 237);
+            this.comboBox_name.Location = new System.Drawing.Point(215, 237);
             this.comboBox_name.Name = "comboBox_name";
             this.comboBox_name.Size = new System.Drawing.Size(100, 21);
             this.comboBox_name.TabIndex = 11;
@@ -151,7 +153,7 @@
             this.Controls.Add(this.label_addNew);
             this.Controls.Add(this.dgw_workoutPlan);
             this.Name = "UserControlPreWorkout";
-            this.Size = new System.Drawing.Size(884, 392);
+            this.Size = new System.Drawing.Size(532, 355);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_workoutPlan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

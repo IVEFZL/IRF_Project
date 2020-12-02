@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace FittSoft
         DWEntities context = new DWEntities();
         bool isCompleted = false;
         int curExNumber = 0;
+        WorkoutSession currentSession;
 
         public FormWorkoutSession()
         {
@@ -26,12 +28,16 @@ namespace FittSoft
             ucPreWorkout = new UserControlPreWorkout();
             panel_main.Controls.Clear();
             panel_main.Controls.Add(ucPreWorkout);
+            btn_delete.Visible = false;
+            btn_save.Visible = false;
+            btn_next.Visible = false;
+
         }
 
         private void btn_startWorkout_Click(object sender, EventArgs e)
         {
             // Új edzés session létrehozása
-            WorkoutSession currentSession = new WorkoutSession();
+            currentSession = new WorkoutSession();
             currentSession.startTime = DateTime.Now;
             currentPlanList = new List<WorkoutPlanItem>();
 
@@ -52,6 +58,8 @@ namespace FittSoft
             ucExercise = new UserControlExercise();
             panel_main.Controls.Clear();
             panel_main.Controls.Add(ucExercise);
+            btn_next.Visible = true;
+            btn_startWorkout.Visible = false;
 
             // Első gyakorlat betöltése
             TryNextExercise();
@@ -65,7 +73,7 @@ namespace FittSoft
             if(!isCompleted)
             {
                 string name = currentPlanList[curExNumber].Megnevezés;
-                string desc = currentPlanList[curExNumber].Megnevezés;
+                string desc = currentPlanList[curExNumber].Leírás;
                 int reps = currentPlanList[curExNumber].Ismétlés;
                 decimal duration = currentPlanList[curExNumber].Időtartam;
                 decimal weight = currentPlanList[curExNumber].Súly;
@@ -86,6 +94,10 @@ namespace FittSoft
 
                 btn_save.Visible = true;
                 btn_delete.Visible = true;
+                btn_next.Visible = false;
+
+                currentSession.endTime = DateTime.Now;
+                currentSession.duration = Decimal.Parse((currentSession.endTime - currentSession.startTime).TotalMinutes.ToString());
             }
         }
 
@@ -107,7 +119,46 @@ namespace FittSoft
         private void btn_save_Click(object sender, EventArgs e)
         {
             // Mentés az adatbázisba
+            context.F_EDZES.Load();
+            context.F_EDZES_GYAKORLAT.Load();
+            fEDZESBindingSource.DataSource = context.F_EDZES.Local;
+            fEDZES_GYAKORLATBindingSource.DataSource = context.F_EDZES_GYAKORLAT.Local;
 
+            // Edzés hozzáadása
+            F_EDZES newWorkout = new F_EDZES();
+            newWorkout.KEZD_IDOPONT = currentSession.startTime;
+            newWorkout.BEF_IDOPONT = currentSession.endTime;
+            newWorkout.IDOTARTAM = currentSession.duration;
+
+            fEDZESBindingSource.Add(newWorkout);
+            context.SaveChanges();
+
+            // Gyakorlatok hozzáadása a létrehozott edzéshez
+            var prevAddedWorkout = (from x in context.F_EDZES
+                               where x.KEZD_IDOPONT == newWorkout.KEZD_IDOPONT
+                               select x).First();
+            int prevAddedSK = prevAddedWorkout.EDZES_SK;
+            
+            foreach (WorkoutPlanItem curItem in currentPlanList)
+            {
+                var curEx = (from x in context.D_GYAKORLAT
+                             where x.MEGNEVEZES == curItem.Megnevezés
+                             select x).First();
+                int exerciseSK = curEx.GYAKORLAT_SK;
+
+                F_EDZES_GYAKORLAT newExercise = new F_EDZES_GYAKORLAT();
+                newExercise.EDZES_ID = prevAddedSK;
+                newExercise.GYAKORLAT_ID = exerciseSK;
+                newExercise.ISMETLES = curItem.Ismétlés;
+                newExercise.IDOTARTAM = curItem.Időtartam;
+                newExercise.SULY = curItem.Súly;
+
+                fEDZES_GYAKORLATBindingSource.Add(newExercise);
+                context.SaveChanges();
+
+                this.Close();
+            }
+                               
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
