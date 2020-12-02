@@ -138,6 +138,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlExercise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlExercise.Designer.cs">
+      <DependentUpon>UserControlExercise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlPreWorkout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlPreWorkout.Designer.cs">
+      <DependentUpon>UserControlPreWorkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkoutPlanItem.cs" />
+    <Compile Include="WorkoutSession.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +167,9 @@
     <EmbeddedResource Include="FormNewMeasure.resx">
       <DependentUpon>FormNewMeasure.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormWorkoutSession.resx">
+      <DependentUpon>FormWorkoutSession.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -162,6 +179,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControlExercise.resx">
+      <DependentUpon>UserControlExercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlPreWorkout.resx">
+      <DependentUpon>UserControlPreWorkout.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>

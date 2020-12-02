@@ -27,6 +27,11 @@ namespace FittSoft
             RefreshDetails();
         }
 
+        private void listBox_exercises_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDetails();
+        }
+
         private void RefreshExercises()
         {
             
@@ -34,15 +39,11 @@ namespace FittSoft
             d_GYAKORLATBindingSource.DataSource = null;
             d_GYAKORLATBindingSource.DataSource = context.D_GYAKORLAT.Local;
             
-
             listBox_exercises.DisplayMember = "MEGNEVEZES";
             listBox_exercises.ValueMember = "GYAKORLAT_SK";
             listBox_exercises.DataSource = d_GYAKORLATBindingSource;
 
-
             comboBox_category.DataSource = Enum.GetValues(typeof(categories));
-
-            
         }
 
         private void RefreshDetails()
@@ -78,12 +79,6 @@ namespace FittSoft
             // BindingSource újrakötése a listboxhoz
             listBox_exercises.DataSource = new List<D_GYAKORLAT>();
             listBox_exercises.DataSource = d_GYAKORLATBindingSource;
-        }
-
-
-        private void listBox_exercises_SelectedIndexChanged(object sender, EventArgs e)
-        {
-                RefreshDetails();
         }
 
         private void btn_addNewExercise_Click(object sender, EventArgs e)
