@@ -144,6 +144,9 @@
     <EmbeddedResource Include="FormDoneWorkouts.resx">
       <DependentUpon>FormDoneWorkouts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormExercises.resx">
+      <DependentUpon>FormExercises.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMeasures.resx">
       <DependentUpon>FormMeasures.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +170,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\D_GYAKORLAT.datasource" />
     <None Include="Properties\DataSources\F_MERES.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
