@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox_exercises = new System.Windows.Forms.ListBox();
-            this.d_GYAKORLATBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_name = new System.Windows.Forms.Label();
             this.label_category = new System.Windows.Forms.Label();
             this.label_desc = new System.Windows.Forms.Label();
@@ -38,7 +37,8 @@
             this.textBox_desc = new System.Windows.Forms.TextBox();
             this.comboBox_category = new System.Windows.Forms.ComboBox();
             this.btn_save = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
+            this.d_GYAKORLATBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_addNewExercise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.d_GYAKORLATBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,10 +50,6 @@
             this.listBox_exercises.Size = new System.Drawing.Size(259, 316);
             this.listBox_exercises.TabIndex = 0;
             this.listBox_exercises.SelectedIndexChanged += new System.EventHandler(this.listBox_exercises_SelectedIndexChanged);
-            // 
-            // d_GYAKORLATBindingSource
-            // 
-            this.d_GYAKORLATBindingSource.DataSource = typeof(FittSoft.D_GYAKORLAT);
             // 
             // label_name
             // 
@@ -106,7 +102,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(426, 303);
+            this.btn_save.Location = new System.Drawing.Point(529, 304);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 23);
             this.btn_save.TabIndex = 7;
@@ -114,22 +110,26 @@
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
-            // btn_delete
+            // d_GYAKORLATBindingSource
             // 
-            this.btn_delete.Location = new System.Drawing.Point(603, 303);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 8;
-            this.btn_delete.Text = "Törlés";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            this.d_GYAKORLATBindingSource.DataSource = typeof(FittSoft.D_GYAKORLAT);
+            // 
+            // btn_addNewExercise
+            // 
+            this.btn_addNewExercise.Location = new System.Drawing.Point(92, 390);
+            this.btn_addNewExercise.Name = "btn_addNewExercise";
+            this.btn_addNewExercise.Size = new System.Drawing.Size(166, 23);
+            this.btn_addNewExercise.TabIndex = 8;
+            this.btn_addNewExercise.Text = "Új gyakorlat hozzáadása";
+            this.btn_addNewExercise.UseVisualStyleBackColor = true;
+            this.btn_addNewExercise.Click += new System.EventHandler(this.btn_addNewExercise_Click);
             // 
             // FormExercises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_addNewExercise);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.comboBox_category);
             this.Controls.Add(this.textBox_desc);
@@ -157,6 +157,6 @@
         private System.Windows.Forms.TextBox textBox_desc;
         private System.Windows.Forms.ComboBox comboBox_category;
         private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_addNewExercise;
     }
 }

@@ -171,6 +171,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\D_GYAKORLAT.datasource" />
+    <None Include="Properties\DataSources\D_KATEGORIA.datasource" />
     <None Include="Properties\DataSources\F_MERES.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
