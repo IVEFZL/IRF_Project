@@ -14,6 +14,7 @@ namespace FittSoft
     {
         DWEntities context = new DWEntities();
         List<WorkoutPlanItem> workoutPlanList = new List<WorkoutPlanItem>();
+        bool isValidItem = false;
 
         public UserControlPreWorkout()
         {
@@ -26,6 +27,39 @@ namespace FittSoft
             comboBox_name.ValueMember = "GYAKORLAT_SK";
             comboBox_name.DataSource = exercises;
         }
+
+        public bool CheckDecimal(String dec)
+        {
+            // Parse ellenőrzés
+            decimal value;
+            if (Decimal.TryParse(dec, out value)) return true;
+            else return false;
+        }
+
+        public bool checkInt(String inte)
+        {
+            // Parse ellenőrzés
+            int value;
+            if (int.TryParse(inte, out value)) return true;
+            else return false;
+        }
+
+        private bool validateReps(string reps)
+        {
+            return checkInt(reps);
+        }
+
+        private bool validateDuration(string dur)
+        {
+            return CheckDecimal(dur);
+        }
+
+        private bool validateWeight(string weight)
+        {
+            return CheckDecimal(weight);
+        }
+
+
 
         private void btn_addToPlan_Click(object sender, EventArgs e)
         {
