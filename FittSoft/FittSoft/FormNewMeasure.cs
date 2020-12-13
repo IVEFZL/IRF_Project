@@ -39,6 +39,20 @@ namespace FittSoft
             return CheckDate(date);
         }
 
+        public bool CheckDate(String date)
+        {
+            // Parse ellenőrzés
+            try
+            {
+                DateTime dt = DateTime.Parse(date);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public bool ValidateWeight(string dec)
         {
             return CheckDecimal(dec);
@@ -66,19 +80,7 @@ namespace FittSoft
             else return false;
         }
 
-        public bool CheckDate(String date)
-        {
-            // Parse ellenőrzés
-            try
-            {
-                DateTime dt = DateTime.Parse(date);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        
 
         public bool CheckDecimal(String dec)
         {
