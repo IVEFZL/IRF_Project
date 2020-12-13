@@ -20,6 +20,11 @@ namespace FittSoft
             InitializeComponent();
         }
 
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidateOkButton();
+        }
+
         private void ValidateOkButton()
         {
             // Csak akkor kattintható az OK gomb, ha minden megfelelően ki lett töltve
@@ -27,28 +32,6 @@ namespace FittSoft
                ValidateWeight(textBox_weight.Text) &&
                ValidateBodyfat(textBox_bodyfat.Text)) btn_ok.Enabled = true;
             else btn_ok.Enabled = false;
-        }
-
-        public bool CheckDate(String date)
-        {
-            // Parse ellenőrzés
-            try
-            {
-                DateTime dt = DateTime.Parse(date);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public bool CheckDecimal(String dec)
-        {
-            // Parse ellenőrzés
-            decimal value;
-            if (Decimal.TryParse(dec, out value)) return true;
-            else return false;
         }
 
         public bool ValidateDate(string date)
@@ -73,7 +56,7 @@ namespace FittSoft
             if (CheckDecimal(bodyfat))
             {
                 isDecimal = true;
-                if(Decimal.Parse(bodyfat) < 100)
+                if (Decimal.Parse(bodyfat) < 100)
                 {
                     lessThan100 = true;
                 }
@@ -83,9 +66,30 @@ namespace FittSoft
             else return false;
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
+        public bool CheckDate(String date)
         {
-            ValidateOkButton();
+            // Parse ellenőrzés
+            try
+            {
+                DateTime dt = DateTime.Parse(date);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
+        public bool CheckDecimal(String dec)
+        {
+            // Parse ellenőrzés
+            decimal value;
+            if (Decimal.TryParse(dec, out value)) return true;
+            else return false;
+        }
+
+        
+
+        
     }
 }
